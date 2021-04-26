@@ -9,7 +9,9 @@ const playlist = {
 
 
 export const Form = (props: Props) => {
-    const [name, setName] = useState("placki")
+    const [name, setName] = useState(playlist.name)
+    const [isPublic, setisPublic] = useState(playlist.public)
+    const [description, setDescription] = useState(playlist.description)
     function nameChange(event){
         console.log(event.target.value)
         setName(event.target.value)
@@ -17,6 +19,7 @@ export const Form = (props: Props) => {
     return (
         <div>
             Formularz
+            <pre>{JSON.stringify({name, public:isPublic, description}, null, 2)}</pre>
             <div className="form-group">
                 <label htmlFor="">Name:</label>
                 <input type="text" className="form-control" value={name} onChange={nameChange}/>
@@ -25,12 +28,13 @@ export const Form = (props: Props) => {
             </div>
 
             <div className="form-check">
-                <input id= "private_checkbox" type="checkbox" className="form-check-input"  />
+                <input id= "private_checkbox" type="checkbox" className="form-check-input" checked={isPublic} 
+                onChange={e=>setisPublic(e.target.checked)} />
                 <label htmlFor="private_checkbox" className="form-check-label"> Public </label></div>
 
             <div className="form-group">
                 <label htmlFor="">Description:</label>
-                <textarea className="form-control">
+                <textarea className="form-control" value={description} onChange={event=>setDescription(event.target.value)}>
                 </textarea>
             </div>
 
