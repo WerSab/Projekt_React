@@ -17,7 +17,12 @@ export const Details = (props: Props) => {
                 <dt>Name:</dt>
                 <dd>{playlist.name}</dd>
                 <dt> Public:</dt>
-                <dd style={{ color: playlist.public ? "red" : "blue" }}>
+                <dd style={
+                    {
+                        color: playlist.public ? "red" : "blue",
+                        fontSize: "16px"
+                    }
+                }>
                     {playlist.public ? "yes" : "no"}</dd>
                 <dt>Description:</dt>
                 <dd>{playlist.description}</dd>

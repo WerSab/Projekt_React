@@ -12,17 +12,17 @@ export const Form = (props: Props) => {
     const [name, setName] = useState(playlist.name)
     const [isPublic, setisPublic] = useState(playlist.public)
     const [description, setDescription] = useState(playlist.description)
-    function nameChange(event){
+    function zmienNazwe(event){
         console.log(event.target.value)
         setName(event.target.value)
     }
     return (
         <div>
             Formularz
-            <pre>{JSON.stringify({name, public:isPublic, description}, null, 2)}</pre>
+            <pre>{JSON.stringify({name, public:isPublic, description}, null, 4)}</pre>
             <div className="form-group">
                 <label htmlFor="">Name:</label>
-                <input type="text" className="form-control" value={name} onChange={nameChange}/>
+                <input type="text" className="form-control" value={name} onChange={zmienNazwe}/>
                 <p> {name.length} / 170 </p>
 
             </div>
