@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
+import { Playlist } from './Playlist'
 
 interface Props {
+    onAnuluj()
+    onZapisz(szkic: Playlist)
+    playLista:Playlist
 
 }
-const playlist = {
-    id: "213", name: "Rock123", public: true, description: "opis"
-}
-
-
 export const Form = (props: Props) => {
-    const [name, setName] = useState(playlist.name)
-    const [isPublic, setisPublic] = useState(playlist.public)
-    const [description, setDescription] = useState(playlist.description)
+    const [name, setName] = useState(props.playLista.name)
+    const [isPublic, setisPublic] = useState(props.playLista.public)
+    const [description, setDescription] = useState(props.playLista.description)
     function zmienNazwe(event){
         console.log(event.target.value)
         setName(event.target.value)
@@ -36,6 +35,12 @@ export const Form = (props: Props) => {
                 <label htmlFor="">Description:</label>
                 <textarea className="form-control" value={description} onChange={event=>setDescription(event.target.value)}>
                 </textarea>
+
+                <button className="btn btn-danger" onClick={() => {props.onAnuluj() }}>Cancel</button>
+                <button className="btn btn-success" onClick={() => {props.onZapisz({
+                    description, id:props.playLista.id, name, public:isPublic
+                }) }}>Save</button>
+            
             </div>
 
         </div>

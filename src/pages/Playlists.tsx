@@ -18,33 +18,42 @@ export const Playlists = (props: Props) => {
     const [TrybEdycji, setTrybEdycji] = useState(false)
     const [aktywneId, setaktywneId] = useState("345")
     const [aktywnaPlaylista, setaktywnaPlaylista] = useState(danePlayList[0])
+    const [allPlaylists, setallPlaylists] = useState(danePlayList)
     
     useEffect(()=>{
         console.log("efekt")
         //danePlayList.find(p=>p.id==aktywneId)
         
-        setaktywnaPlaylista(danePlayList.find(p=>p.id==aktywneId))
+        setaktywnaPlaylista(allPlaylists.find(p=>p.id==aktywneId))
 
-    }, [aktywneId])
+    }, [aktywneId, allPlaylists])
     
     console.log("renderuje")
-    
+    const zapiszSzkic=(szkic:Playlist)=>
+    {
+        setTrybEdycji(false)
+        setallPlaylists(allPlaylists.map(playlist=>playlist.id==szkic.id?szkic:playlist))
+    }
     return (
         <div>
             <h2>Playlist</h2>
             <div className="row">
                 <div className="col">Lista
-               <List selectedId={aktywneId} danePlayList={danePlayList} setSelectedId={setaktywneId}/>
+               <List selectedId={aktywneId} danePlayList={allPlaylists} setSelectedId={setaktywneId}/>
                 </div>
                 <div className="col">Szczegóły
                {TrybEdycji ?
                         <div>
-                            <Form />
-                            <button className="btn btn-danger" onClick={e => {setTrybEdycji(false) }}>Cancel</button>
-                            <button className="btn btn-success">Save</button>
+                            <Form 
+                            onAnuluj={()=>setTrybEdycji(false)}
+                            onZapisz={(szkic)=>zapiszSzkic(szkic)}
+                            playLista={aktywnaPlaylista}
+                            />
+                            
                         </div> : <div>
-                            <Details danePlaylisty={aktywnaPlaylista} />
-                            <button className="btn btn-info" onClick={e => {setTrybEdycji(!TrybEdycji) }}>Edit</button>
+                            <Details danePlaylisty={aktywnaPlaylista} 
+                            onEdytuj={()=>{setTrybEdycji(true)}}/>
+                            
                         </div>}
 -
 

@@ -3,6 +3,7 @@ import { Playlist } from './Playlist'
 
 interface Props {
     danePlaylisty: Playlist
+    onEdytuj()
 }
 
 export const Details = (props: Props) => {
@@ -25,7 +26,7 @@ export const Details = (props: Props) => {
                 <dt>Description:</dt>
                 <dd>{playlist.description}</dd>
             </dl>
-
+            <button className="btn btn-info" onClick={e =>props.onEdytuj()}>Edit</button>
         </div>
     )
 }
