@@ -1,15 +1,13 @@
 import React from 'react'
+import { Playlist } from './Playlist'
 
 interface Props {
-
+    danePlaylisty: Playlist
 }
-const playlist = {
-    id: "213", name: "Rock123", public: true, description: "opis"
-}
-
 
 export const Details = (props: Props) => {
-    return (
+    const playlist=props.danePlaylisty
+        return (
         <div>
             Details1
             <dl title={playlist.name} className="placki">
