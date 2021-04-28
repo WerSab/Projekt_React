@@ -28,7 +28,7 @@ export const Playlists = (props: Props) => {
                         <Details />
                         <button className="btn btn-info" onClick={e => { setTrybEdycji(!TrybEdycji) }}>Edit</button>
                     </div>}
-
+-
 
                 </div>
 
