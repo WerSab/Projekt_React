@@ -1,6 +1,7 @@
 import React from 'react';
 import "bootstrap/dist/css/bootstrap.css"
 import { Playlists } from './pages/Playlists';
+import { MusicSearch } from './pages/Musicsearch';
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
           <div className="col">
             <h1>Aplikacja React</h1>
 
-            <Playlists></Playlists>
+            {/* <Playlists/> */}
+            
+            <MusicSearch/>
 
           </div>
         </div>
