@@ -109,3 +109,9 @@ fetch('http://localhost:3000/albums.json')
 
 ## Axios
 npm install axios
+
+## React Router
+https://reactrouter.com/web/guides/quick-start
+
+npm install react-router-dom @types/react-router-dom
+
