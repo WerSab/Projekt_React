@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { Playlist } from './Playlist'
+import { Playlist } from '../interfaces/Playlist'
 
-interface Props {
+interface Props {//ustawiamy nazwy/listę oczekiwanych funkcji/danych i typy w kontrakcie z kontenerem(rodzicem)
     onAnuluj()
     onZapisz(szkic: Playlist)
     playLista:Playlist
@@ -13,12 +13,12 @@ export const Form = (props: Props) => {
     const [description, setDescription] = useState(props.playLista.description)
     function zmienNazwe(event){
         console.log(event.target.value)
-        setName(event.target.value)
+        setName(event.target.value)//zmieniamy lokalny stan(nazwę)
     }
     return (
         <div>
             Formularz
-            <pre>{JSON.stringify({name, public:isPublic, description}, null, 4)}</pre>
+            <pre>{JSON.stringify({name, public:isPublic, description}, null, 4)}</pre>{/*4-odstępy, mtworzymy obiekt ze szkicu i splaszczamy go */}
             <div className="form-group">
                 <label htmlFor="">Name:</label>
                 <input type="text" className="form-control" value={name} onChange={zmienNazwe}/>

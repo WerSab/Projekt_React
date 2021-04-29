@@ -1,5 +1,5 @@
 import React from 'react'
-import { Playlist } from './Playlist'
+import { Playlist } from '../interfaces/Playlist'
 
 interface Props {
     danePlaylisty: Playlist
@@ -26,7 +26,9 @@ export const Details = (props: Props) => {
                 <dt>Description:</dt>
                 <dd>{playlist.description}</dd>
             </dl>
-            <button className="btn btn-info" onClick={e =>props.onEdytuj()}>Edit</button>
+            {/*bootstrap */}
+            <button className="btn btn-info" 
+             onClick={e =>props.onEdytuj()}>Edit</button>{/* onClick-props, onEdytuj dostajemy od rodzica, i przekazujemy do propsa z wartością onclick*/}
         </div>
     )
 }
