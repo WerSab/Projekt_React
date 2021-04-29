@@ -101,3 +101,11 @@ touch ./src/pages/Musicsearch.tsx
 touch ./src/components/SearchForm.tsx
 touch ./src/components/AlbumGrid.tsx
 touch ./src/components/AlbumCard.tsx
+
+## Fetch 
+fetch('http://localhost:3000/albums.json')
+.then(resp => resp.json())
+.then(dane => console.log(dane))
+
+## Axios
+npm install axios
