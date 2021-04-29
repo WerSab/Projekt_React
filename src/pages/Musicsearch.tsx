@@ -12,7 +12,12 @@ const fakeAlbums: Album[] = [
 ]
 
 export const MusicSearch = (props: Props) => {
-    const [albumList, setAlbumList] = useState(fakeAlbums)
+    const [albumList, setAlbumList] = useState([])
+
+    const szukaj = (haslozapytanie: string) => {
+        console.log(haslozapytanie);
+        setAlbumList(fakeAlbums)
+    }
 
     return (
         <div>
@@ -20,7 +25,7 @@ export const MusicSearch = (props: Props) => {
 
             <div className="row">
                 <div className="col">
-                    <SearchForm />
+                    <SearchForm onSearch={szukaj} />
                 </div>
             </div>
             <div className="row">
