@@ -1,0 +1,29 @@
+[
+    {
+        "id": "123",
+        "name": "Server Album 123",
+        "images": [
+            {
+                "url": "https://www.placecage.com/c/300/300"
+            }
+        ]
+    },
+    {
+        "id": "234",
+        "name": "Server Album 234",
+        "images": [
+            {
+                "url": "https://www.placecage.com/c/400/400"
+            }
+        ]
+    },
+    {
+        "id": "345",
+        "name": "Server Album 345",
+        "images": [
+            {
+                "url": "https://www.placecage.com/c/500/500"
+            }
+        ]
+    }
+]
