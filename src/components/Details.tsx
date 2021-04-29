@@ -6,9 +6,9 @@ interface Props {
     onEdytuj()
 }
 
-export const Details = (props: Props) => {
-    const playlist=props.danePlaylisty
-        return (
+export const Details = ({ danePlaylisty: playlist, onEdytuj }: Props) => {
+    // const playlist=props.danePlaylisty
+    return (
         <div>
             Details1
             <dl title={playlist.name} className="placki">
@@ -27,8 +27,8 @@ export const Details = (props: Props) => {
                 <dd>{playlist.description}</dd>
             </dl>
             {/*bootstrap */}
-            <button className="btn btn-info" 
-             onClick={e =>props.onEdytuj()}>Edit</button>{/* onClick-props, onEdytuj dostajemy od rodzica, i przekazujemy do propsa z wartością onclick*/}
+            <button className="btn btn-info"
+                onClick={e => onEdytuj()}>Edit</button>{/* onClick-props, onEdytuj dostajemy od rodzica, i przekazujemy do propsa z wartością onclick*/}
         </div>
     )
 }
