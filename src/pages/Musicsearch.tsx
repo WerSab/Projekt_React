@@ -19,9 +19,8 @@ export const MusicSearch = (props: Props) => {
         console.log(haslozapytanie);
         // setAlbumList(fakeAlbums)
 
-        axios.get('http://localhost:3000/albums.json').then(odpowiedzSerwera => {
-            setAlbumList(odpowiedzSerwera.data)
-        })
+        axios.get('https://api.spotify.com/v1/search?type=album&q=' + haslozapytanie, {})
+            .then(odpowiedzSerwera => setAlbumList(odpowiedzSerwera.data.albums.items))
     }
 
     return (
